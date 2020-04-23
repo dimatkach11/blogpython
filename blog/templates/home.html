@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <div>
+      <h1>
+        <a href="admin">Admin</a>
+      </h1>
+    </div>
+    <div>
+      {% for articolo in articoli %}
+        <h2>{{articolo.title}}</h2>
+        <div>{{articolo.data_pubblicazione}}{% if articolo.author %} - {{articolo.author}}{%endif%}</div>
+        <p>{{articolo.text}}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
